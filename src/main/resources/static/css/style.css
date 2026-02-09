@@ -1,0 +1,353 @@
+/* ===== Reset & Base ===== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Malgun Gothic', '맑은 고딕', -apple-system, sans-serif;
+    background: #fff;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* ===== Title ===== */
+.page-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #333;
+}
+
+/* ===== Form Row (label left + content right) ===== */
+.form-row {
+    display: flex;
+    align-items: flex-start;
+    padding: 14px 0;
+    gap: 20px;
+}
+
+.form-label {
+    width: 110px;
+    min-width: 110px;
+    font-weight: 600;
+    padding-top: 6px;
+    font-size: 14px;
+    color: #333;
+}
+
+.form-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #e5e5e5;
+    margin: 0;
+}
+
+/* ===== Checkbox Group (Fixed Extensions) ===== */
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 20px;
+    align-items: center;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.checkbox-item input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    accent-color: #555;
+}
+
+.checkbox-item label {
+    font-size: 14px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.form-sub-actions {
+    margin-top: 8px;
+    display: flex;
+    gap: 4px;
+}
+
+/* ===== Buttons ===== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #bbb;
+    background: #f5f5f5;
+    color: #333;
+    font-size: 13px;
+    padding: 5px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s;
+}
+
+.btn:hover {
+    background: #e8e8e8;
+}
+
+.btn-xs {
+    font-size: 12px;
+    padding: 3px 10px;
+}
+
+.btn-add {
+    background: #6c6c6c;
+    color: #fff;
+    border-color: #6c6c6c;
+    padding: 6px 16px;
+}
+
+.btn-add:hover {
+    background: #555;
+}
+
+.btn-file {
+    background: #fff;
+    border: 1px solid #bbb;
+    padding: 6px 16px;
+}
+
+.btn-upload {
+    background: #4a7eff;
+    color: #fff;
+    border-color: #4a7eff;
+    padding: 5px 20px;
+}
+
+.btn-upload:hover {
+    background: #3a6ae0;
+}
+
+.btn-reset {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #d44;
+    padding: 5px 16px;
+}
+
+.btn-reset:hover {
+    background: #fff5f5;
+}
+
+/* ===== Input Row ===== */
+.input-row {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.input-row input {
+    flex: 1;
+    padding: 7px 10px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    font-size: 13px;
+    outline: none;
+}
+
+.input-row input:focus {
+    border-color: #888;
+}
+
+/* ===== Custom Box ===== */
+.custom-box {
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    min-height: 100px;
+    max-height: 280px;
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-box-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 10px;
+    border-bottom: 1px solid #e5e5e5;
+    background: #fafafa;
+    font-size: 12px;
+    color: #888;
+}
+
+.custom-box-actions {
+    display: flex;
+    gap: 4px;
+}
+
+.tag-area {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 6px;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.tag-area .empty-text {
+    color: #aaa;
+    font-size: 13px;
+}
+
+/* ===== Tags ===== */
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 8px;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.tag .delete-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+.tag .delete-btn:hover {
+    color: #d44;
+}
+
+/* ===== Hint ===== */
+.hint {
+    font-size: 12px;
+    color: #999;
+    margin-top: 4px;
+}
+
+/* ===== Upload ===== */
+.upload-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.file-placeholder {
+    font-size: 13px;
+    color: #999;
+}
+
+/* drag over */
+.upload-row.dragover {
+    background: #f0f4ff;
+    border-radius: 4px;
+    outline: 2px dashed #4a7eff;
+    outline-offset: 4px;
+}
+
+/* ===== Selected Files ===== */
+.selected-files {
+    margin-top: 10px;
+    padding: 10px;
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+}
+
+.selected-files ul {
+    list-style: none;
+    margin-bottom: 8px;
+}
+
+.selected-files li {
+    padding: 2px 0;
+    font-size: 13px;
+    color: #555;
+}
+
+.selected-files li::before {
+    content: '📎 ';
+}
+
+.selected-files-actions {
+    display: flex;
+    gap: 6px;
+}
+
+/* ===== Upload Result ===== */
+.upload-result {
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    white-space: pre-line;
+}
+
+.upload-result.success {
+    background: #eafbea;
+    border: 1px solid #b7e4b7;
+    color: #256625;
+}
+
+.upload-result.error {
+    background: #fdeaea;
+    border: 1px solid #f0b8b8;
+    color: #8b2020;
+}
+
+/* ===== Footer ===== */
+.footer-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ===== Scrollbar ===== */
+.tag-area::-webkit-scrollbar { width: 5px; }
+.tag-area::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+.tag-area::-webkit-scrollbar-track { background: transparent; }
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+    .form-row {
+        flex-direction: column;
+        gap: 6px;
+    }
+    .form-label {
+        width: auto;
+        min-width: auto;
+    }
+    .container {
+        margin: 16px auto;
+    }
+}

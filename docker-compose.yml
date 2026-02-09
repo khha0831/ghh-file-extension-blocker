@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16
+    container_name: blocker-db
+    environment:
+      POSTGRES_DB: blockerdb
+      POSTGRES_USER: blocker
+      POSTGRES_PASSWORD: blocker1234
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  app:
+    build: .
+    container_name: blocker-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/blockerdb
+      DB_USERNAME: blocker
+      DB_PASSWORD: blocker1234
+
+volumes:
+  pgdata:

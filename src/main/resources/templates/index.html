@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>파일 확장자 차단 시스템</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+
+    <h2 class="page-title">파일 확장자 차단 설정</h2>
+
+    <!-- ===== 고정 확장자 ===== -->
+    <div class="form-row">
+        <div class="form-label">고정 확장자</div>
+        <div class="form-content">
+            <div class="checkbox-group" id="fixed-extensions"></div>
+            <div class="form-sub-actions">
+                <button class="btn btn-xs" onclick="bulkUpdateFixed(true)">전체 선택</button>
+                <button class="btn btn-xs" onclick="bulkUpdateFixed(false)">전체 해제</button>
+            </div>
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- ===== 커스텀 확장자 ===== -->
+    <div class="form-row">
+        <div class="form-label">커스텀 확장자</div>
+        <div class="form-content">
+            <div class="input-row">
+                <input type="text" id="custom-input"
+                       placeholder="영문 소문자, 숫자만 입력 (한글 입력 불가 / 쉼표로 다중 입력)"
+                       maxlength="100"
+                       autocomplete="off">
+                <button class="btn btn-add" onclick="addCustomExtensions()">+추가</button>
+            </div>
+            <div class="custom-box">
+                <div class="custom-box-header">
+                    <span id="custom-count">0/200</span>
+                    <div class="custom-box-actions">
+                        <button class="btn btn-xs" onclick="deleteAllCustom()">초기화</button>
+                        <button class="btn btn-xs" onclick="generateTestData()">🧪 테스트</button>
+                    </div>
+                </div>
+                <div id="custom-extensions" class="tag-area"></div>
+            </div>
+            <p class="hint">🧪 테스트 버튼: test1~test200 더미 데이터를 생성하여 200개 제한을 확인할 수 있습니다. 서버 환경에 따라 다소 시간이 소요될 수 있습니다.</p>
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- ===== 파일 첨부 ===== -->
+    <div class="form-row">
+        <div class="form-label">파일 첨부</div>
+        <div class="form-content">
+            <div class="upload-row" id="upload-area">
+                <input type="file" id="file-input" multiple hidden>
+                <button class="btn btn-file" onclick="document.getElementById('file-input').click()">파일 선택</button>
+                <span id="file-placeholder" class="file-placeholder">선택된 파일 없음</span>
+            </div>
+            <p class="hint">여러 파일 동시 선택 가능 · 드래그 앤 드롭 지원 · 차단 파일 포함 시 전체 거부<br>파일 1개당 최대 50MB · 전체 최대 100MB</p>
+
+            <div id="selected-files" class="selected-files" style="display:none;">
+                <ul id="file-list-ul"></ul>
+                <div class="selected-files-actions">
+                    <button class="btn btn-upload" onclick="uploadFiles()">업로드</button>
+                    <button class="btn btn-xs" onclick="clearFiles()">취소</button>
+                </div>
+            </div>
+
+            <div id="upload-result" class="upload-result" style="display:none;"></div>
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- ===== 하단 ===== -->
+    <div class="form-row">
+        <div class="form-label"></div>
+        <div class="form-content footer-actions">
+            <button class="btn btn-reset" onclick="resetAll()">설정 초기화</button>
+            <span class="hint">커스텀 전체 삭제 + 고정 전체 해제</span>
+        </div>
+    </div>
+
+</div>
+
+<script th:src="@{/js/app.js}"></script>
+</body>
+</html>
